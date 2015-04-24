@@ -1,0 +1,34 @@
+{
+  "name": "angular2-lib-seed",
+  "version": "0.0.1",
+  "description": "Angular2 library seed project",
+  "homepage": "https://github.com/neermitt/angular2-lib-seed",
+  "bugs": "https://github.com/neermitt/angular2-lib-seed/issues",
+  "contributors": {
+    "Neeraj Mittal": "mittal.neeraj@gmail.com"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neermitt/angular2-lib-seed.git"
+  },
+  "dependencies": {
+    "traceur": "^0.0.72",
+    "requirejs": "^2.1.15"
+  },
+  "devDependencies": {
+    "assert": "angular/assert#dist",
+    "gulp": "^3.8.9",
+    "gulp-connect": "^2.0.6",
+    "gulp-rename": "^1.2.0",
+    "gulp-traceur": "^0.13.0",
+    "karma": "^0.12.24",
+    "karma-chrome-launcher": "^0.1.5",
+    "karma-jasmine": "^0.2.2",
+    "karma-requirejs": "^0.2.2",
+    "karma-traceur-preprocessor": "^0.4.0"
+  },
+  "scripts": {
+    "test": "karma start --single-run"
+  }
+}
