@@ -2,11 +2,14 @@ var gulp = require('gulp');
 var traceur = require('gulp-traceur');
 var connect = require('gulp-connect');
 var rename = require('gulp-rename');
+var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
 
 var TRACEUR_OPTIONS = require('./config').traceur;
 var PATH = {
     SRC: './src/**/*.ats',
-    EXAMPLES: './examples/**/*.ats'
+    EXAMPLES: './examples/**/*.ats',
+    SASS: './src/**/*.scss'
 };
 
 
@@ -27,7 +30,16 @@ gulp.task('build.examples', function() {
 });
 
 
-gulp.task('build', ['build.src', 'build.examples']);
+// Compile SASS
+gulp.task('build.src.css', function() {
+    gulp.src(PATH.SASS)
+        .pipe(sass())
+        .pipe(autoprefixer())
+        .pipe(gulp.dest('build/src'));
+});
+
+
+gulp.task('build', ['build.src', 'build.examples', 'build.src.css']);
 
 
 // WATCH FILES FOR CHANGES
