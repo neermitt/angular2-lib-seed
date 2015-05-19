@@ -21,7 +21,6 @@ require.config({
     baseUrl: '/base',
 
     paths: {
-        assert: './node_modules/rtts-assert/dist/amd/assert'
     },
 
     // Dynamically load all test files.

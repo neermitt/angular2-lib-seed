@@ -1,33 +1,43 @@
 // Karma configuration
 // Generated on Fri Mar 14 2014 15:01:19 GMT-0700 (PDT)
 
-var traceurOptions = require('./config').traceur;
+var typescriptOptions = require('./config').typescript;
 
-module.exports = function(config) {
-    config.set({
-        frameworks: ['jasmine', 'requirejs', 'traceur'],
+module.exports = function (config) {
+  config.set({
+    frameworks: ['jasmine', 'requirejs'],
 
-        files: [
-            // The entry point that dynamically imports all the specs.
-            {pattern: 'test-main.js', included: true},
+    files: [
+      // The entry point that dynamically imports all the specs.
+      {pattern: 'test-main.js', included: true},
 
-            // All the specs and sources are included dynamically from `test/main.js`.
-            {pattern: 'src/**/*.js', included: false},
-            {pattern: 'test/**/*.js', included: false},
+      // All the specs and sources are included dynamically from `test/main.js`.
+      {pattern: 'src/**/*.ts', included: false},
+      {pattern: 'test/**/*.ts', included: false}
+    ],
 
-            // The runtime assertion library.
-            {pattern: 'node_modules/rtts-assert/dist/amd/assert.js', included: false}
-        ],
+    preprocessors: {
+      '**/*.ts': ['typescript']
+    },
 
-        preprocessors: {
-            'src/**/*.js': ['traceur'],
-            'test/**/*.js': ['traceur']
-        },
+    browsers: ['Chrome'],
 
-        browsers: ['Chrome'],
+    typescriptPreprocessor: {
+      options: {
+        sourceMap: true,
+        module: 'amd'
+      },
+      typings: [
+        'typings/tsd.d.ts',
+        'typings/jasmine/jasmine.d.ts'
+      ]
+    },
 
-        traceurPreprocessor: {
-            options: traceurOptions
-        }
-    });
+    plugins: [
+      'karma-jasmine',
+      'karma-requirejs',
+      'karma-chrome-launcher',
+      'karma-typescript-preprocessor'
+    ]
+  });
 };

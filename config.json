@@ -1,11 +1,8 @@
 {
-  "traceur": {
-    "modules": "amd",
-    "script": false,
-    "types": true,
-    "typeAssertions": true,
-    "typeAssertionModule": "assert",
-    "annotations": true,
-    "sourceMaps": true
+  "typescript": {
+    "emitDecoratorMetadata": true,
+    "module": "amd",
+    "target": "ES5",
+    "sourceMap": true
   }
 }
