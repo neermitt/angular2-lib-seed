@@ -9,7 +9,7 @@ module.exports = function (config) {
 
     files: [
       // The entry point that dynamically imports all the specs.
-      {pattern: 'test-main.js', included: true},
+      {pattern: 'test/main.js', included: true},
 
       // All the specs and sources are included dynamically from `test/main.js`.
       {pattern: 'src/**/*.ts', included: false},
