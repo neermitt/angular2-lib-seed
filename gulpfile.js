@@ -40,7 +40,7 @@ gulp.task('build.src.js', function () {
   gulp.src(CONFIG.src.main)
     .pipe(sourcemaps.init())
     .pipe(typescript(typescriptOptions))
-    .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(CONFIG.dest.js.dev.es5 + '/src'));
 });
 
@@ -74,11 +74,11 @@ gulp.task('watch', function () {
 // WEB SERVER
 gulp.task('serve', function () {
   connect.server({
-    root: [__dirname, './examples'],
+    root: [__dirname, './examples', CONFIG.dest.js.dev.es5],
     port: 8000,
     livereload: false
   });
 });
 
 
-gulp.task('default', ['serve', 'watch']);
+gulp.task('default', ['build', 'serve', 'watch']);

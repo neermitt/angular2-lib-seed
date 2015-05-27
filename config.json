@@ -1,8 +1,8 @@
 {
   "typescript": {
-    "emitDecoratorMetadata": true,
-    "module": "amd",
+    "module": "commonjs",
     "target": "ES5",
-    "sourceMap": true
+    "removeComments": true,
+    "emitDecoratorMetadata": true
   }
 }
