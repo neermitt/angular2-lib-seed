@@ -1,8 +1,26 @@
 {
-  "typescript": {
-    "module": "commonjs",
-    "target": "ES5",
-    "removeComments": true,
-    "emitDecoratorMetadata": true
+  "typescript":{
+    "es5": {
+      "module": "commonjs",
+      "target": "ES5",
+      "noImplicitAny": true,
+      "declaration": true,
+      "noEmitOnError": true,
+      "allowNonTsExtensions": false,
+      "declaration": true,
+      "emitDecoratorMetadata": true
+    },
+    "es6": {
+      "target": "ES6",
+      "noImplicitAny": true,
+      "declaration": true,
+      "noEmitOnError": true,
+      "allowNonTsExtensions": false,
+      "declaration": true,
+      "emitDecoratorMetadata": true
+    },
+    "release": {
+      "removeComments": true
+    }
   }
 }
